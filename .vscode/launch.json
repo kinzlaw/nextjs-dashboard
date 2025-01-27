@@ -31,8 +31,10 @@
             "serverReadyAction": {
                 "action": "debugWithChrome",
                 "killOnServerStop": true,
-                "pattern": "- Local:.+(https?://.+)",
-                "uriFormat": "%s",
+                "pattern": "- Network:.+(https?://.+)",
+                "uriFormat": "%s/dashboard",
+                // "pattern": "- Local:.*",
+                // "uriFormat": "http://localhost:3001",
                 "webRoot": "${workspaceFolder}"
             }
         }

@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { inter } from "../ui/fonts";
 
 export default function Abc() {
-    const status = "pending";
+    const status: string = "pending";
     return (
         <p>
             {clsx(
