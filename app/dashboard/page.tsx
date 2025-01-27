@@ -1,5 +1,5 @@
 "use client"
-import { useLayoutContext } from "./layout";
+import { useLayoutContext } from "./layout-context";
 
 export default function Page() {
     const { number, increment } = useLayoutContext();
