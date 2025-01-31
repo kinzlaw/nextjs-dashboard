@@ -1,13 +1,35 @@
-"use client"
-import { useLayoutContext } from "./layout-context";
+// "use client"
+// import { useLayoutContext } from "./layout-context";
+import { Card } from "../ui/dashboard/cards";
+import RevenueChart from "../ui/dashboard/revenue-chart";
+import LatestInvoices from "../ui/dashboard/latest-invoices";
+import { lusitana } from "../ui/fonts";
+import { fetchRevenue, fetchLatestInvoices } from "../lib/data";
 
-export default function Page() {
-    const { number, increment } = useLayoutContext();
+export default async function Page() {
+    const revenue = await fetchRevenue();
+    const latestInvoices = await fetchLatestInvoices();
 
     return (
-        <div>
-            <p>Dashboard {number}</p>
-            <button onClick={increment}>Increment</button>
-        </div>
-    );
+        <main>
+            <h1 className={`${lusitana.className} mb-4 text-xl md:text-2x1`}>
+                Dashboard
+            </h1>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+            </div>
+            <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
+                <RevenueChart revenue={revenue} />
+                <LatestInvoices latestInvoices={latestInvoices} />
+            </div>
+        </main>
+    )
+    // const { number, increment } = useLayoutContext();
+
+    // return (
+    //     <div>
+    //         <p>Dashboard {number}</p>
+    //         <button onClick={increment}>Increment</button>
+    //     </div>
+    // );
 }

@@ -1,19 +1,18 @@
 import clsx from "clsx";
 import { inter } from "../ui/fonts";
 
-export default function Abc() {
-    const status: string = "pending";
+export default async function Abc() {
+    async function myAsyncFunction() {
+        await new Promise(f => setTimeout(f, 15000));
+        if (1 > 2)
+            return true;
+        else
+            return 'hello';
+    };
+    const result = myAsyncFunction();
     return (
         <p>
-            {clsx(
-                'inline-flex items-center rounded-full px-2 py-1 text-sm',
-                {
-                    'bg-gray-100 text-gray-500': status === 'pending',
-                    'bg-green-500 text-white': status === 'paid',
-                },
-            )}
-            <br/>
-            {inter.className}
+            {result}
         </p>
     )
 }
