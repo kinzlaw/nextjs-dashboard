@@ -165,6 +165,42 @@ export async function fetchInvoiceById(id: string) {
   }
 }
 
+// export async function fetchNumberOfInvoices() {
+//   try {
+//     const data = await sql`SELECT count(*) FROM invoices`;
+
+//     const number = data.rows[0].count;
+//     return number;
+//   } catch (err) {
+//     console.error('Database Error:', err);
+//     throw new Error('Failed to fetch number of invoices.');
+//   }
+// }
+
+// export async function fetchAmountOfCollectedInvoices() {
+//   try {
+//     const data = await sql`SELECT sum(amount) FROM invoices WHERE status = 'paid'`;
+
+//     const sum = data.rows[0].sum;
+//     return sum;
+//   } catch (err) {
+//     console.error('Database Error:', err);
+//     throw new Error('Failed to fetch amount of collected invoices.');
+//   }
+// }
+
+// export async function fetchAmountOfPendinInvoices() {
+//   try {
+//     const data = await sql`SELECT sum(amount) FROM invoices WHERE status = 'pending'`;
+
+//     const sum = data.rows[0].sum;
+//     return sum;
+//   } catch (err) {
+//     console.error('Database Error:', err);
+//     throw new Error('Failed to fetch amount of pending invoices.');
+//   }
+// }
+
 export async function fetchCustomers() {
   try {
     const data = await sql<CustomerField>`
@@ -182,6 +218,18 @@ export async function fetchCustomers() {
     throw new Error('Failed to fetch all customers.');
   }
 }
+
+// export async function fetchNumberOfCustomers() {
+//   try {
+//     const data = await sql`SELECT count(*) FROM customers`;
+
+//     const number = data.rows[0].count;
+//     return number;
+//   } catch (err) {
+//     console.error('Database Error:', err);
+//     throw new Error('Failed to fetch number of customers.');
+//   }
+// }
 
 export async function fetchFilteredCustomers(query: string) {
   try {
