@@ -22,7 +22,8 @@
             "serverReadyAction": {
                 "action": "debugWithChrome",
                 "killOnServerStop": true,
-                "pattern": "- Network:.+(https?://.+)",
+                // "pattern": "- Network:.+(https?://.+)",
+                "pattern": "- Local:.+(https?://.+)",
                 "uriFormat": "%s/dashboard",
                 // "pattern": "- Local:.*",
                 // "uriFormat": "http://localhost:3001",
